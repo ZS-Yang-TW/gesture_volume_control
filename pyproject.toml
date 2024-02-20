@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "gesture-control-project"
+version = "0.1.0"
+description = ""
+authors = ["steven <msycomtw@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+opencv-python = "^4.9.0.80"
+mediapipe = "^0.10.9"
+pycaw = "^20230407"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
