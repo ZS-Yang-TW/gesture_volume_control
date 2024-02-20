@@ -4,10 +4,12 @@ import time #用來取得電腦時間
 import mediapipe as mp #偵測模型
 import math #偵測模型
 
+
 #實現音量控制所需的套件:
 from ctypes import cast, POINTER
 from comtypes import CLSCTX_ALL
 from pycaw.pycaw import AudioUtilities, IAudioEndpointVolume    #音量控制套件
+# import osascript #音量控制套件 (For macOS)
 
 
 ##攝影機設定##
@@ -42,6 +44,10 @@ volume = cast(interface, POINTER(IAudioEndpointVolume))
 volRange = volume.GetVolumeRange()  #取得裝置音量範圍資料
 minVol, maxVol = volRange[0], volRange[1]   #取得裝置音量最大值、最小值
 print(volume.GetVolumeRange())  #輸出音量範圍   (-96,0,後面這個不用理他)
+
+# # macOS 系统音量控制函数
+# def set_volume(volume):
+#     osascript.run(f"set volume output volume {volume}")
 
 ##迴圈區域##
 while True:
@@ -78,6 +84,12 @@ while True:
             volbar = np.interp(length,[25,200],[400,150])   #指示條長度映射調整
             volper = np.interp(length,[25,200],[0,100])   #指示條數值映射調整
             volume.SetMasterVolumeLevel(vol, None)  #設定音量    
+            
+            # # 映射調整（适用于 macOS）
+            # vol = np.interp(length, [25, 200], [0, 100])  # 音量映射調整为百分比
+            # volbar = np.interp(length, [25, 200], [400, 150])  # 指示條長度映射調整
+            # volper = np.interp(length, [25, 200], [0, 100])  # 指示條數值映射調整
+            # set_volume(vol)  # 设置系统音量
                 
             #畫出拇指、食指、中指三個點，並連線
             cv2.circle(img, (x4, y4), 9, (105,165,218), cv2.FILLED)

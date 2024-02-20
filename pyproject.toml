@@ -10,6 +10,7 @@ python = "^3.9"
 opencv-python = "^4.9.0.80"
 mediapipe = "^0.10.9"
 pycaw = "^20230407"
+osascript = "^2020.12.3"
 
 
 [build-system]

@@ -576,6 +576,19 @@ numpy = [
 ]
 
 [[package]]
+name = "osascript"
+version = "2020.12.3"
+description = "osascript (AppleScript) python implementation"
+optional = false
+python-versions = "*"
+files = [
+    {file = "osascript-2020.12.3.tar.gz", hash = "sha256:36d3f30fb6c43c868c70d1fb06e4c970844a5cbe0a481b9fbd5059398916e069"},
+]
+
+[package.dependencies]
+runcmd = "*"
+
+[[package]]
 name = "packaging"
 version = "23.2"
 description = "Core utilities for Python packages"
@@ -785,6 +798,19 @@ files = [
 six = ">=1.5"
 
 [[package]]
+name = "runcmd"
+version = "2020.12.3"
+description = "run shell command"
+optional = false
+python-versions = "*"
+files = [
+    {file = "runcmd-2020.12.3.tar.gz", hash = "sha256:1f2652c2e51404bb0faaa83610f23fdafd4c246b46e361a5dd6d4334d013fc24"},
+]
+
+[package.dependencies]
+psutil = "*"
+
+[[package]]
 name = "six"
 version = "1.16.0"
 description = "Python 2 and 3 compatibility utilities"
@@ -833,4 +859,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "27dcd6d8f24e3d96996b7e860a452d027ac7b10c51d601b8d1e23c81c72efe0a"
+content-hash = "a3054ed031602c94e2e1cd3f9ff239e9f0986ad87b672b49d56305067d0860d6"
